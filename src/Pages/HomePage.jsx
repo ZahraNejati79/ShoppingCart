@@ -1,18 +1,24 @@
 import { data } from "autoprefixer";
 import Layout from "../Layout/Layout";
 import * as prod from "../data";
+import { useCartAction } from "../Context/CartProvider";
 
 const HomePage = () => {
+  const dispatch = useCartAction();
   const addProductHandler = (product) => {
-    console.log(product);
+    dispatch({ type: "ADD_TO_CART", payload: product });
   };
+
   return (
     <Layout>
       <main className="flex justify-center items-center ">
         <section className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))]  rounded-lg gap-x-2 gap-y-3 max-w-7xl width-full">
           {prod.products.map((p) => {
             return (
-              <section className="bg-blue-200 flex-col items-center justify-center rounded-lg ">
+              <section
+                key={p.name}
+                className="bg-blue-200 flex-col items-center justify-center rounded-lg "
+              >
                 <div className="">
                   <img
                     className="w-full h-auto overflow-auto rounded-t-lg"
@@ -36,8 +42,8 @@ const HomePage = () => {
             );
           })}
         </section>
+        <h2>this is home page</h2>
       </main>
-      <h2>this is home page</h2>
     </Layout>
   );
 };
