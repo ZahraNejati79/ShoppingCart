@@ -7,12 +7,14 @@ import {
   useRouteMatch,
   Router,
 } from "react-router-dom";
+import CartPage from "./Pages/CartPage";
 const App = () => {
   return (
     <BrowserRouter>
-      <div dir="rtl" className="container bg-red-500">
-        <HomePage />
-      </div>
+      <Switch>
+        <Route path="/cart" component={CartPage} />
+        <Route path="/" component={HomePage} />
+      </Switch>
     </BrowserRouter>
   );
 };

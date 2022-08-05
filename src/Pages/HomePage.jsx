@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import Layout from "../Layout/Layout";
 
 const HomePage = () => {
