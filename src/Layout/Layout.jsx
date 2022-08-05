@@ -2,7 +2,7 @@ import Navigation from "../Components/Navigation";
 
 const Layout = ({ children }) => {
   return (
-    <div className="width-full ">
+    <div className="width-full">
       <Navigation />
       {children}
     </div>
