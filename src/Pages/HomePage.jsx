@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <main className="flex justify-center items-center ">
+      <main className="flex justify-center items-center">
         <section className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))]  rounded-lg gap-x-2 gap-y-3 max-w-7xl width-full">
           {prod.products.map((p) => {
             return (

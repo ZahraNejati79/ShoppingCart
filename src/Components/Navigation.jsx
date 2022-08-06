@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 const Navigation = () => {
   return (
-    <header className="text-gray-600 bg-blue-300 width-screen h-16 flex justify-center">
+    <header className="text-gray-600 bg-blue-300 width-screen h-16 flex justify-center sticky top-0">
       <nav className="container flex justify-center items-center ">
         <ul className="flex justify-center items-center gap-x-4">
           <li>

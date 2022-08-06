@@ -2,9 +2,9 @@ import Navigation from "../Components/Navigation";
 
 const Layout = ({ children }) => {
   return (
-    <div className="width-full">
+    <div className="w-screen h-screen ">
       <Navigation />
-      {children}
+      <div className=" flex justify-center  w-full ">{children}</div>
     </div>
   );
 };
