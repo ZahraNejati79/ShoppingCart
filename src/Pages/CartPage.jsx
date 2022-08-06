@@ -1,9 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { useCart } from "../Context/CartProvider";
+import { useCart, useCartAction } from "../Context/CartProvider";
 import Layout from "../Layout/Layout";
 
 const CartPage = () => {
   const { cart, total } = useCart();
+  const dispatch = useCartAction();
+
+  const incrementHandler = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
 
   if (!cart.length) {
     return (
@@ -22,7 +27,7 @@ const CartPage = () => {
   return (
     <Layout>
       <main className=" w-screen flex items-center justify-center">
-        <div className="md:grid md:grid-cols-4 w-2/3  gap-x-4 md:max-w-3xl  md:w-5/6 container">
+        <div className="md:grid md:grid-cols-4  gap-x-4 md:max-w-3xl w-full md:w-5/6 container">
           <div className=" md:col-span-3 w-full flex flex-col gap-y-3 justify-center items-center">
             {cart.map((item) => {
               return (
@@ -36,6 +41,37 @@ const CartPage = () => {
                   <div>
                     <div>{item.name}</div>
                     <div>قیمت : {item.price},000 هزار تومان</div>
+                  </div>
+                  <div className=" flex items-center justify-center">
+                    <button onClick={() => incrementHandler(item)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                    <div className="px-2">{item.quantity}</div>
+                    <button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               );
