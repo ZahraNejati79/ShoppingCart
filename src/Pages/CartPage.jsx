@@ -14,6 +14,9 @@ const CartPage = () => {
     dispatch({ type: "REMOVE_PRODUCT", payload: item });
   };
 
+  // const calculateTotal = (items = cart) =>
+  //   items.reduce((total, item) => total + item.quantity * item.price, 0);
+
   if (!cart.length) {
     return (
       <Layout>
@@ -85,7 +88,7 @@ const CartPage = () => {
             <div className=" border-slate-400 max-w-sm border rounded-lg p-1 flex flex-col gap-y-4 justify-start items-start">
               <div className="w-full">
                 <div className="flex justify-between mb-2 w-full">
-                  <div>تومان 10</div>
+                  <div>تومان {total}</div>
                   <div>:قیمت کل</div>
                 </div>
                 <div className="flex justify-between w-full">
