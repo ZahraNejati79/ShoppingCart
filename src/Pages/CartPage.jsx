@@ -10,6 +10,10 @@ const CartPage = () => {
     dispatch({ type: "ADD_TO_CART", payload: item });
   };
 
+  const decrementHandler = (item) => {
+    dispatch({ type: "REMOVE_PRODUCT", payload: item });
+  };
+
   if (!cart.length) {
     return (
       <Layout>
@@ -58,7 +62,7 @@ const CartPage = () => {
                       </svg>
                     </button>
                     <div className="px-2">{item.quantity}</div>
-                    <button>
+                    <button onClick={() => decrementHandler(item)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5"
