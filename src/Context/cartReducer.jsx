@@ -15,7 +15,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: updatedCart,
-        total: state.total + action.payload.price,
+        total: state.total + action.payload.offPrice,
       };
     }
     case "REMOVE_PRODUCT": {
@@ -32,7 +32,7 @@ const cartReducer = (state, action) => {
         return {
           ...state,
           cart: deletedItem,
-          total: state.total - action.payload.price,
+          total: state.total - action.payload.offPrice,
         };
       } else {
         const quantity = updatedItem.quantity--;
@@ -40,7 +40,7 @@ const cartReducer = (state, action) => {
         return {
           ...state,
           cart: updatedCart,
-          total: state.total - action.payload.price,
+          total: state.total - action.payload.offPrice,
         };
       }
     }

@@ -35,11 +35,12 @@ const CartPage = () => {
     <Layout>
       <main className=" w-screen flex items-center justify-center">
         <div className="md:grid md:grid-cols-4  gap-x-4 md:max-w-3xl w-full md:w-5/6 container">
-          <div className=" md:col-span-3 w-full flex flex-col gap-y-3 justify-center items-center">
+          <SummaryCart cart={cart} total={total} />
+          <div className=" md:col-span-3 w-full flex flex-col gap-y-3 justify-center items-center bg-white p-2 mt-2 rounded-lg">
             {cart.map((item) => {
               return (
                 <div
-                  className="w-full flex  justify-between items-center border-b-2 border-slate-500 "
+                  className="w-full flex  justify-between items-center border-b-2 border-slate-200 "
                   key={item.id}
                 >
                   <div className="w-32 h-auto">
@@ -84,25 +85,6 @@ const CartPage = () => {
               );
             })}
           </div>
-          <div className="md:col-spam-2 mt-8 ">
-            <div className=" border-slate-400 max-w-sm border rounded-lg p-1 flex flex-col gap-y-4 justify-start items-start">
-              <div className="w-full">
-                <div className="flex justify-between mb-2 w-full">
-                  <div>تومان {total}</div>
-                  <div>:قیمت کل</div>
-                </div>
-                <div className="flex justify-between w-full">
-                  <div>10 /</div>
-                  <div>:تخفیف</div>
-                </div>
-              </div>
-              <div className="flex justify-center items-center w-full">
-                <button className="bg-blue-200 w-full mt-4 rounded-lg py-1">
-                  ادامه سفارش
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
     </Layout>
@@ -110,3 +92,33 @@ const CartPage = () => {
 };
 
 export default CartPage;
+const SummaryCart = ({ cart, total }) => {
+  const originalPrice = cart.length
+    ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    : 0;
+  return (
+    <div className="md:col-spam-2 mt-8 ">
+      <div className="  max-w-sm  bg-white rounded-lg  flex flex-col gap-y-4 justify-start items-start p-2">
+        <div className="w-full">
+          <div className="flex justify-between mb-2 w-full">
+            <div> {originalPrice}</div>
+            <div>:قیمت کل</div>
+          </div>
+          <div className="flex justify-between w-full">
+            <div>{originalPrice - total}</div>
+            <div>:تخفیف</div>
+          </div>
+        </div>
+        <div className="flex justify-between w-full">
+          <div>{total}</div>
+          <div>:پمبلغ پرداختی</div>
+        </div>
+        <div className="flex justify-center items-center w-full">
+          <button className="bg-blue-200 w-full mt-4 rounded-lg py-1">
+            ادامه سفارش
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
