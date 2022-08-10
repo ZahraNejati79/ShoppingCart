@@ -16,6 +16,16 @@ const Navigation = () => {
               خانه
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              className="hover:bg-white hover:text-blue-400 p-2 rounded-lg"
+              activeClassName="bg-white text-blue-400"
+              exact
+              to="/singup"
+            >
+              ثبت نام/ورود
+            </NavLink>
+          </li>
           <li className="relative">
             <NavLink
               className="hover:bg-white hover:text-blue-400 p-2 rounded-lg"
