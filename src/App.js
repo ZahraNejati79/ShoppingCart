@@ -4,6 +4,7 @@ import CartPage from "./Pages/CartPage";
 import CartProvider from "./Context/CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CheckoutPage from "./Pages/CheckoputPage";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <CartProvider>
         <ToastContainer />
         <Switch>
+          <Route path="/checkout" component={CheckoutPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/" component={HomePage} />
         </Switch>
