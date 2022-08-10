@@ -1,11 +1,16 @@
 import { data } from "autoprefixer";
 import Layout from "../Layout/Layout";
 import * as prod from "../data";
-import { useCartAction } from "../Context/CartProvider";
+import { useCart, useCartAction } from "../Context/CartProvider";
+import { checkInCart } from "../utils/checkInCart";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
+  const { cart } = useCart();
   const dispatch = useCartAction();
   const addProductHandler = (product) => {
+    toast.success("با موفقیت به سبد خرید اضافه شد");
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
 
@@ -35,7 +40,11 @@ const HomePage = () => {
                     className="p-2 bg-blue-400 w-full rounded-b-lg"
                     onClick={() => addProductHandler(p)}
                   >
-                    افزودن به سبد خرید
+                    {checkInCart(cart, p) ? (
+                      <NavLink to="/cart">"ادامه سفارش"</NavLink>
+                    ) : (
+                      "افزودن به سبد خرید"
+                    )}
                   </button>
                 </div>
               </section>
