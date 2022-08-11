@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
+
 import { useState } from "react";
 import * as yup from "yup";
+import InputComponent from "../common/InputComponent";
 const SingupForm = () => {
   // const [userData, setUserDate] = useState({
   //   name: "",
@@ -66,92 +68,32 @@ const SingupForm = () => {
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
       <form onSubmit={formik.handleSubmit}>
-        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="name">نام کاربری</label>
-          <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm  p-[2px] px-[5px]"
-            name="name"
-            // onBlur={formik.handleBlur}
-            // onChange={formik.handleChange}
-            // value={formik.values.name}
-            {...formik.getFieldProps("name")}
-            type="text"
-          />
-          {formik.errors.name && formik.touched.name && (
-            <div className="mb-2 text-red-500 text-sm">
-              {formik.errors.name}
-            </div>
-          )}
-        </div>
-        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="email">ایمیل</label>
-          <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
-            name="email"
-            // onBlur={formik.handleBlur}
-            // onChange={formik.handleChange}
-            // value={formik.values.email}
-            {...formik.getFieldProps("email")}
-            type="email"
-          />
-          {formik.errors.email && formik.touched.email && (
-            <div className="mb-2 text-red-500 text-sm">
-              {formik.errors.email}
-            </div>
-          )}
-        </div>
-        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="phoneNumber">تلفن همراه</label>
-          <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
-            name="phoneNumber"
-            // onBlur={formik.handleBlur}
-            // onChange={formik.handleChange}
-            // value={formik.values.email}
-            {...formik.getFieldProps("phoneNumber")}
-            type="text"
-          />
-          {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-            <div className="mb-2 text-red-500 text-sm">
-              {formik.errors.phoneNumber}
-            </div>
-          )}
-        </div>
-        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="password">رمز عبور</label>
-          <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
-            name="password"
-            // onBlur={formik.handleBlur}
-            // onChange={formik.handleChange}
-            // value={formik.values.password}
-            {...formik.getFieldProps("password")}
-            type="password"
-          />
-          {formik.errors.password && formik.touched.password && (
-            <div className="mb-2 text-red-500 text-sm">
-              {formik.errors.password}
-            </div>
-          )}
-        </div>
-        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="passwordConfirmation">تکرار رمز عبور</label>
-          <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
-            name="passwordConfirmation"
-            // onBlur={formik.handleBlur}
-            // onChange={formik.handleChange}
-            // value={formik.values.password}
-            {...formik.getFieldProps("passwordConfirmation")}
-            type="password"
-          />
-          {formik.errors.passwordConfirmation &&
-            formik.touched.passwordConfirmation && (
-              <div className="mb-2 text-red-500 text-sm">
-                {formik.errors.passwordConfirmation}
-              </div>
-            )}
-        </div>
+        <InputComponent name="name" formik={formik} label="نام کاربری" />
+        <InputComponent
+          name="email"
+          formik={formik}
+          label="ایمیل"
+          type="email"
+        />
+        <InputComponent
+          name="phoneNumber"
+          formik={formik}
+          label="تلفن همراه"
+          type="tel"
+        />
+        <InputComponent
+          name="password"
+          formik={formik}
+          label="رمز عبور"
+          type="password"
+        />
+        <InputComponent
+          name="passwordConfirmation"
+          formik={formik}
+          label="تکرار رمز عبور"
+          type="password"
+        />
+
         <button
           disabled={!formik.isValid}
           type="submit"
