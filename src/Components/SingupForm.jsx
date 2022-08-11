@@ -30,19 +30,32 @@ const SingupForm = () => {
   //   return errors;
   // };
   const validationSchema = yup.object({
-    name: yup.string().required("وارد کردن نام الزامی است"),
+    name: yup
+      .string()
+      .required("وارد کردن نام الزامی است")
+      .min(6, "حداقل 6 کاراکتر"),
     email: yup
       .string()
       .email("فرمت اشتباه است")
       .required("وارد کردن ایمیل الزامی است"),
+    phoneNumber: yup
+      .string()
+      .matches(/^[0-9]{11}/, "شماره تلفن نامعتبر است")
+      .required("وارد کردن تلفن همراه الزامی است"),
     password: yup.string().required("وارد کردن رمز عبور الزامی است"),
+    passwordConfirmation: yup
+      .string()
+      .required("الزامی*")
+      .oneOf([yup.ref("password"), null], "با رمز عبور مطابقت ندارد"),
   });
 
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
+      phoneNumber: "",
       password: "",
+      passwordConfirmation: "",
     },
     onSubmit: (value) => console.log(value),
     // validate,
@@ -87,6 +100,23 @@ const SingupForm = () => {
           )}
         </div>
         <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
+          <label htmlFor="phoneNumber">تلفن همراه</label>
+          <input
+            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
+            name="phoneNumber"
+            // onBlur={formik.handleBlur}
+            // onChange={formik.handleChange}
+            // value={formik.values.email}
+            {...formik.getFieldProps("phoneNumber")}
+            type="text"
+          />
+          {formik.errors.phoneNumber && formik.touched.phoneNumber && (
+            <div className="mb-2 text-red-500 text-sm">
+              {formik.errors.phoneNumber}
+            </div>
+          )}
+        </div>
+        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
           <label htmlFor="password">رمز عبور</label>
           <input
             className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
@@ -102,6 +132,24 @@ const SingupForm = () => {
               {formik.errors.password}
             </div>
           )}
+        </div>
+        <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
+          <label htmlFor="passwordConfirmation">تکرار رمز عبور</label>
+          <input
+            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
+            name="passwordConfirmation"
+            // onBlur={formik.handleBlur}
+            // onChange={formik.handleChange}
+            // value={formik.values.password}
+            {...formik.getFieldProps("passwordConfirmation")}
+            type="password"
+          />
+          {formik.errors.passwordConfirmation &&
+            formik.touched.passwordConfirmation && (
+              <div className="mb-2 text-red-500 text-sm">
+                {formik.errors.passwordConfirmation}
+              </div>
+            )}
         </div>
         <button
           type="submit"
