@@ -57,10 +57,11 @@ const SingupForm = () => {
           <input
             className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm  p-[2px] px-[5px]"
             name="name"
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // onChange={formik.handleChange}
+            // value={formik.values.name}
+            {...formik.getFieldProps("name")}
             type="text"
-            value={formik.values.name}
           />
           {formik.errors.name && formik.touched.name && (
             <div className="mb-2 text-red-500 text-sm">
@@ -73,10 +74,11 @@ const SingupForm = () => {
           <input
             className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
             name="email"
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // onChange={formik.handleChange}
+            // value={formik.values.email}
+            {...formik.getFieldProps("email")}
             type="email"
-            value={formik.values.email}
           />
           {formik.errors.email && formik.touched.email && (
             <div className="mb-2 text-red-500 text-sm">
@@ -89,10 +91,11 @@ const SingupForm = () => {
           <input
             className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
             name="password"
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // onChange={formik.handleChange}
+            // value={formik.values.password}
+            {...formik.getFieldProps("password")}
             type="password"
-            value={formik.values.password}
           />
           {formik.errors.password && formik.touched.password && (
             <div className="mb-2 text-red-500 text-sm">
