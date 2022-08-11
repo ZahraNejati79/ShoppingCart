@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-
+import * as yup from "yup";
 const SingupForm = () => {
   // const [userData, setUserDate] = useState({
   //   name: "",
@@ -16,19 +16,28 @@ const SingupForm = () => {
     e.preventDefault();
   };
 
-  const validate = (values) => {
-    let errors = {};
-    if (!values.name) {
-      errors.name = "وارد کردن نام الزامی است";
-    }
-    if (!values.email) {
-      errors.email = "وارد کردن ایمیل الزامی است";
-    }
-    if (!values.password) {
-      errors.password = "وارد کردن رمز عبور الزامی است";
-    }
-    return errors;
-  };
+  // const validate = (values) => {
+  //   let errors = {};
+  //   if (!values.name) {
+  //     errors.name = "وارد کردن نام الزامی است";
+  //   }
+  //   if (!values.email) {
+  //     errors.email = "وارد کردن ایمیل الزامی است";
+  //   }
+  //   if (!values.password) {
+  //     errors.password = "وارد کردن رمز عبور الزامی است";
+  //   }
+  //   return errors;
+  // };
+  const validationSchema = yup.object({
+    name: yup.string().required("وارد کردن نام الزامی است"),
+    email: yup
+      .string()
+      .email("فرمت اشتباه است")
+      .required("وارد کردن ایمیل الزامی است"),
+    password: yup.string().required("وارد کردن رمز عبور الزامی است"),
+  });
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -36,7 +45,8 @@ const SingupForm = () => {
       password: "",
     },
     onSubmit: (value) => console.log(value),
-    validate,
+    // validate,
+    validationSchema,
   });
   console.log(formik.touched);
   return (
