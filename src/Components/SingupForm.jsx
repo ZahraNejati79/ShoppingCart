@@ -38,39 +38,57 @@ const SingupForm = () => {
     onSubmit: (value) => console.log(value),
     validate,
   });
-  console.log(formik.errors);
+  console.log(formik.touched);
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
       <form onSubmit={formik.handleSubmit}>
         <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
-          <label htmlFor="name">نام</label>
+          <label htmlFor="name">نام کاربری</label>
           <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm py-[2px] px-[5px]"
+            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm  p-[2px] px-[5px]"
             name="name"
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             type="text"
             value={formik.values.name}
           />
+          {formik.errors.name && formik.touched.name && (
+            <div className="mb-2 text-red-500 text-sm">
+              {formik.errors.name}
+            </div>
+          )}
         </div>
         <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
           <label htmlFor="email">ایمیل</label>
           <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[1px] px-[5px]"
+            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
             name="email"
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            type="text"
+            type="email"
             value={formik.values.email}
           />
+          {formik.errors.email && formik.touched.email && (
+            <div className="mb-2 text-red-500 text-sm">
+              {formik.errors.email}
+            </div>
+          )}
         </div>
         <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
           <label htmlFor="password">رمز عبور</label>
           <input
-            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[1px] px-[5px]"
+            className="border border-gray-300 focus:outline-2 focus:outline-blue-500 w-full rounded-sm p-[2px] px-[5px]"
             name="password"
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            type="text"
+            type="password"
             value={formik.values.password}
           />
+          {formik.errors.password && formik.touched.password && (
+            <div className="mb-2 text-red-500 text-sm">
+              {formik.errors.password}
+            </div>
+          )}
         </div>
         <button
           type="submit"
