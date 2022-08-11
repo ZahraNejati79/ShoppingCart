@@ -60,6 +60,7 @@ const SingupForm = () => {
     onSubmit: (value) => console.log(value),
     // validate,
     validationSchema,
+    validateOnMount: true,
   });
   console.log(formik.touched);
   return (
@@ -152,8 +153,13 @@ const SingupForm = () => {
             )}
         </div>
         <button
+          disabled={!formik.isValid}
           type="submit"
-          className="flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
+          className={
+            formik.isValid
+              ? "flex items-center justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
+              : "flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
+          }
         >
           ثبت نام
         </button>
