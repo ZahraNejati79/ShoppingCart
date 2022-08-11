@@ -16,6 +16,19 @@ const SingupForm = () => {
     e.preventDefault();
   };
 
+  const validate = (values) => {
+    let errors = {};
+    if (!values.name) {
+      errors.name = "وارد کردن نام الزامی است";
+    }
+    if (!values.email) {
+      errors.email = "وارد کردن ایمیل الزامی است";
+    }
+    if (!values.password) {
+      errors.password = "وارد کردن رمز عبور الزامی است";
+    }
+    return errors;
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -23,8 +36,9 @@ const SingupForm = () => {
       password: "",
     },
     onSubmit: (value) => console.log(value),
+    validate,
   });
-  console.log(formik.values);
+  console.log(formik.errors);
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
       <form onSubmit={formik.handleSubmit}>
