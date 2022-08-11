@@ -22,11 +22,12 @@ const SingupForm = () => {
       email: "",
       password: "",
     },
+    onSubmit: (value) => console.log(value),
   });
   console.log(formik.values);
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
-      <form onSubmit={submitHandler}>
+      <form onSubmit={formik.handleSubmit}>
         <div className="mb-3 flex flex-col items-end justify-center gap-2 rounded-lg focus:border-blue_500 focus:border">
           <label htmlFor="name">نام</label>
           <input
@@ -57,7 +58,10 @@ const SingupForm = () => {
             value={formik.values.password}
           />
         </div>
-        <button className="flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500">
+        <button
+          type="submit"
+          className="flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
+        >
           ثبت نام
         </button>
       </form>
