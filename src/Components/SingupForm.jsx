@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
-
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
+
 const SingupForm = () => {
   // const [userData, setUserDate] = useState({
   //   name: "",
@@ -64,7 +64,7 @@ const SingupForm = () => {
     validationSchema,
     validateOnMount: true,
   });
-  console.log(formik.touched);
+
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
       <form onSubmit={formik.handleSubmit}>
@@ -97,15 +97,25 @@ const SingupForm = () => {
         <button
           disabled={!formik.isValid}
           type="submit"
-          className={
-            formik.isValid
-              ? "flex items-center justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
-              : "flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
-          }
+          className="flex items-center disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
+          // className={
+          //   formik.isValid
+          //     ? "flex items-center disabled: justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
+          //     : "flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
+          // }
         >
           ثبت نام
         </button>
       </form>
+      <div className="border-t-2 border-gray-200 mt-4 pt-4">
+        <p dir="rtl">اگر قبلا ثبت نام کرده اید وارد شوید</p>
+        <NavLink
+          to="/login"
+          className="flex items-center hover:text-white hover:bg-blue-400  bg-gray-300 text-gray-400 justify-center w-full  mt-2 rounded-sm py-1 "
+        >
+          وارد شدن
+        </NavLink>
+      </div>
     </div>
   );
 };
