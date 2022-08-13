@@ -3,10 +3,12 @@ import { useState } from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
+import { useAuth, useAuthAction } from "../Context/AuthProvider";
 import { singupUser } from "../services/SingupService";
 import { showError } from "../utils/shoeError";
 
 const SingupForm = ({ history }) => {
+  const setAuth = useAuthAction();
   // const [userData, setUserDate] = useState({
   //   name: "",
   //   email: "",
@@ -44,6 +46,9 @@ const SingupForm = ({ history }) => {
     };
     try {
       const { data } = await singupUser(userData);
+      setAuth(data);
+      localStorage.setItem("authState", JSON.stringify(data));
+      setError(null);
       history.push("/");
     } catch (error) {
       if (error.response.data.message) {

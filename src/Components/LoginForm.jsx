@@ -3,14 +3,19 @@ import { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
+import { useAuthAction } from "../Context/AuthProvider";
 import { loginUser } from "../services/LoginService";
 
 const LoginForm = ({ history }) => {
+  const setAuth = useAuthAction();
   const [error, setError] = useState(null);
 
   const onSubmit = async (value) => {
     try {
       const { data } = await loginUser(value);
+      setAuth(data);
+      localStorage.setItem("authState", JSON.stringify(data));
+      setError(null);
       history.push("/");
     } catch (error) {
       if (error.response.data.message) {
