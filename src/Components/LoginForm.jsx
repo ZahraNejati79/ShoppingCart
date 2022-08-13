@@ -1,22 +1,30 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
-import { useAuthAction } from "../Context/AuthProvider";
+import { useAuth, useAuthAction } from "../Context/AuthProvider";
+import { useQuery } from "../hook/useQuery";
 import { loginUser } from "../services/LoginService";
 
 const LoginForm = ({ history }) => {
+  const redirect = useQuery().get("redirect") || "/";
+
   const setAuth = useAuthAction();
   const [error, setError] = useState(null);
+  const auth = useAuth();
+
+  useEffect(() => {
+    if (auth) history.push(redirect);
+  }, [auth, redirect]);
 
   const onSubmit = async (value) => {
     try {
       const { data } = await loginUser(value);
       setAuth(data);
-      localStorage.setItem("authState", JSON.stringify(data));
+      // localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
-      history.push("/");
+      history.push(redirect);
     } catch (error) {
       if (error.response.data.message) {
         setError(error.response.data.message);
@@ -71,7 +79,10 @@ const LoginForm = ({ history }) => {
         )}
       </form>
       <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
-        <Link to="/singup" className=" text-blue-500 outline-none">
+        <Link
+          to={`/singup?redirect=${redirect}`}
+          className=" text-blue-500 outline-none"
+        >
           هنوز ثبت نام نکرده اید ؟
         </Link>
       </div>

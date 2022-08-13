@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useCart, useCartAction } from "../Context/CartProvider";
 import Layout from "../Layout/Layout";
 
@@ -121,12 +121,11 @@ const SummaryCart = ({ cart, total }) => {
           <div>:پمبلغ پرداختی</div>
         </div>
         <div className="flex justify-center items-center w-full">
-          <NavLink
-            to="/checkout"
-            className="bg-gradient-to-r from-cyan-400 to-blue-400 text-white flex justify-center items-center w-full mt-4 rounded-lg py-1"
-          >
-            پرداخت سفارش
-          </NavLink>
+          <Link to="/singup?redirect=checkout">
+            <button className="bg-gradient-to-r from-cyan-400 to-blue-400 text-white flex justify-center items-center w-full mt-4 rounded-lg py-1">
+              پرداخت سفارش
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,14 +1,18 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
 import { useAuth, useAuthAction } from "../Context/AuthProvider";
+import { useQuery } from "../hook/useQuery";
 import { singupUser } from "../services/SingupService";
 import { showError } from "../utils/shoeError";
 
 const SingupForm = ({ history }) => {
+  const redirect = useQuery().get("redirect") || "/";
+  console.log(redirect);
   const setAuth = useAuthAction();
+  const auth = useAuth();
   // const [userData, setUserDate] = useState({
   //   name: "",
   //   email: "",
@@ -35,6 +39,9 @@ const SingupForm = ({ history }) => {
   // };
 
   const [error, setError] = useState(null);
+  useEffect(() => {
+    if (auth) history.push(redirect);
+  }, [auth, redirect]);
 
   const onSubmit = async (value) => {
     const { name, email, phoneNumber, password } = value;
@@ -47,9 +54,9 @@ const SingupForm = ({ history }) => {
     try {
       const { data } = await singupUser(userData);
       setAuth(data);
-      localStorage.setItem("authState", JSON.stringify(data));
+      // localStorage.setItem("authState", JSON.stringify(data));
       setError(null);
-      history.push("/");
+      history.push(redirect);
     } catch (error) {
       if (error.response.data.message) {
         setError(error.response.data.message);
@@ -135,7 +142,10 @@ const SingupForm = ({ history }) => {
         {error && <div>{showError(error)}</div>}
       </form>
       <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
-        <Link to="/login" className=" text-blue-500 outline-none">
+        <Link
+          to={`/singup?redirect=${redirect}`}
+          className=" text-blue-500 outline-none"
+        >
           قبلا ثبت نام کرده اید ؟
         </Link>
       </div>

@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 import { useCart } from "../Context/CartProvider";
+
 const Navigation = () => {
   const { cart } = useCart();
   const auth = useAuth();
   return (
-    <header className="text-gray-600 bg-gradient-to-r from-cyan-200 to-blue-200 bg-blue-2 00 width-screen h-16 flex justify-center sticky top-0">
+    <header className="text-gray-600 bg-gradient-to-r from-cyan-200 to-blue-200 bg-blue-2 00 width-screen h-16 flex justify-center sticky top-0 mb-4 z-10">
       <nav className="container flex justify-between items-center max-w-xl md:max-w-2xl lg:max-w-7xl px-4">
         <ul className="flex items-center justify-start gap-x-2 gap-y-2">
           <li>
