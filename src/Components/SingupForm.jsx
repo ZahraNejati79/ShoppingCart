@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
 
@@ -107,14 +107,10 @@ const SingupForm = () => {
           ثبت نام
         </button>
       </form>
-      <div className="border-t-2 border-gray-200 mt-4 pt-4">
-        <p dir="rtl">اگر قبلا ثبت نام کرده اید وارد شوید</p>
-        <NavLink
-          to="/login"
-          className="flex items-center hover:text-white hover:bg-blue-400  bg-gray-300 text-gray-400 justify-center w-full  mt-2 rounded-sm py-1 "
-        >
-          وارد شدن
-        </NavLink>
+      <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
+        <Link to="/login" className=" text-blue-500 outline-none">
+          قبلا ثبت نام کرده اید ؟
+        </Link>
       </div>
     </div>
   );

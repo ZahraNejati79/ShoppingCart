@@ -1,41 +1,35 @@
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
 
 const LoginForm = () => {
   const validationSchema = yup.object({
-    name: yup
+    email: yup
       .string()
-      .required("وارد کردن نام الزامی است")
-      .min(6, "حداقل 6 کاراکتر"),
-    phoneNumber: yup
-      .string()
-      .matches(/^[0-9]{11}/, "شماره تلفن نامعتبر است")
-      .required("وارد کردن تلفن همراه الزامی است"),
+      .email("فرمت اشتباه است")
+      .required("وارد کردن ایمیل الزامی است"),
     password: yup.string().required("وارد کردن رمز عبور الزامی است"),
   });
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      phoneNumber: "",
+      email: "",
       password: "",
     },
     onSubmit: (value) => console.log(value),
     validationSchema,
     validateOnMount: true,
   });
-  console.log(formik.isValid);
 
   return (
     <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
       <form onSubmit={formik.handleSubmit}>
-        <InputComponent name="name" formik={formik} label="نام کاربری" />
         <InputComponent
-          name="phoneNumber"
+          name="email"
           formik={formik}
-          label="تلفن همراه"
-          type="tel"
+          label="ایمیل"
+          type="email"
         />
         <InputComponent
           name="password"
@@ -48,9 +42,14 @@ const LoginForm = () => {
           disabled={!formik.isValid}
           type="submit"
         >
-          وراد شدن
+          وارد شدن
         </button>
       </form>
+      <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
+        <Link to="/singup" className=" text-blue-500 outline-none">
+          هنوز ثبت نام نکرده اید ؟
+        </Link>
+      </div>
     </div>
   );
 };
