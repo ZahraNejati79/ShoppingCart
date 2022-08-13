@@ -1,7 +1,10 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
+import { singupUser } from "../services/SingupService";
+import { showError } from "../utils/shoeError";
 
 const SingupForm = () => {
   // const [userData, setUserDate] = useState({
@@ -14,9 +17,6 @@ const SingupForm = () => {
   //   console.log(e.target.value);
   //   setUserDate({ ...userData, [e.target.name]: e.target.value });
   // };
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
 
   // const validate = (values) => {
   //   let errors = {};
@@ -31,6 +31,27 @@ const SingupForm = () => {
   //   }
   //   return errors;
   // };
+
+  const [error, setError] = useState(null);
+
+  const onSubmit = async (value) => {
+    const { name, email, phoneNumber, password } = value;
+    const userData = {
+      name,
+      email,
+      phoneNumber,
+      password,
+    };
+    try {
+      const { data } = await singupUser(userData);
+      console.log(data);
+    } catch (error) {
+      if (error.response.data.message) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   const validationSchema = yup.object({
     name: yup
       .string()
@@ -59,7 +80,7 @@ const SingupForm = () => {
       password: "",
       passwordConfirmation: "",
     },
-    onSubmit: (value) => console.log(value),
+    onSubmit,
     // validate,
     validationSchema,
     validateOnMount: true,
@@ -106,6 +127,7 @@ const SingupForm = () => {
         >
           ثبت نام
         </button>
+        {error && <div>{showError(error)}</div>}
       </form>
       <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
         <Link to="/login" className=" text-blue-500 outline-none">

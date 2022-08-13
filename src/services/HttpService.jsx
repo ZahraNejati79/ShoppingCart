@@ -1,5 +1,4 @@
-const { default: axios, default: axios } = require("axios");
-
+import axios from "axios";
 axios.defaults.baseURL = "http://localhost:5000/api";
 
 const http = {
