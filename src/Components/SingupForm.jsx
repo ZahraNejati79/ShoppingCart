@@ -1,12 +1,12 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
 import { singupUser } from "../services/SingupService";
 import { showError } from "../utils/shoeError";
 
-const SingupForm = () => {
+const SingupForm = ({ history }) => {
   // const [userData, setUserDate] = useState({
   //   name: "",
   //   email: "",
@@ -44,7 +44,7 @@ const SingupForm = () => {
     };
     try {
       const { data } = await singupUser(userData);
-      console.log(data);
+      history.push("/");
     } catch (error) {
       if (error.response.data.message) {
         setError(error.response.data.message);
@@ -87,7 +87,7 @@ const SingupForm = () => {
   });
 
   return (
-    <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300">
+    <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300 mx-2">
       <form onSubmit={formik.handleSubmit}>
         <InputComponent name="name" formik={formik} label="نام کاربری" />
         <InputComponent
@@ -138,4 +138,4 @@ const SingupForm = () => {
   );
 };
 
-export default SingupForm;
+export default withRouter(SingupForm);

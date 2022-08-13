@@ -16,28 +16,25 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <main className="flex justify-center items-center">
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))]  rounded-lg gap-x-2 gap-y-3 max-w-7xl width-full">
+      <main className="flex justify-center items-center bg-gray-200 w-full p-4">
+        <section className="grid w-full  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-lg gap-x-2 gap-y-3 max-w-md md:max-w-2xl lg:max-w-7xl  ">
           {prod.products.map((p) => {
             return (
               <section
                 key={p.name}
-                className="bg-blue-200 flex-col items-center justify-center rounded-lg "
+                className="bg-white flex-col items-center justify-center rounded-lg w-full "
               >
-                <div className="">
+                <div className="w-full ">
                   <img
                     className="w-full h-auto overflow-auto rounded-t-lg"
                     src={p.image}
                     alt={p.name}
                   />
                 </div>
-                <div className="flex justify-between items-center p-2">
-                  <p>{p.name}</p>
+                <div className="flex justify-between items-center bg-gray-100 p-2 text-sm border-2 border-gray-100 rounded-b-lg">
                   <p>{p.price},000 تومان</p>
-                </div>
-                <div className="flex justify-center items-center rounded-b-lg">
                   <button
-                    className="p-2 bg-blue-400 w-full rounded-b-lg"
+                    className="p-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-lg font-bold"
                     onClick={() => addProductHandler(p)}
                   >
                     {checkInCart(cart, p) ? (
@@ -51,7 +48,6 @@ const HomePage = () => {
             );
           })}
         </section>
-        <h2>this is home page</h2>
       </main>
     </Layout>
   );

@@ -123,7 +123,7 @@ const SummaryCart = ({ cart, total }) => {
         <div className="flex justify-center items-center w-full">
           <NavLink
             to="/checkout"
-            className="bg-blue-600 text-white flex justify-center items-center w-full mt-4 rounded-lg py-1"
+            className="bg-gradient-to-r from-cyan-400 to-blue-400 text-white flex justify-center items-center w-full mt-4 rounded-lg py-1"
           >
             پرداخت سفارش
           </NavLink>
