@@ -1,15 +1,15 @@
-import { data } from "autoprefixer";
 import Layout from "../Layout/Layout";
 import * as prod from "../data";
 import { useCart, useCartAction } from "../Context/CartProvider";
 import { checkInCart } from "../utils/checkInCart";
-import { NavLink } from "react-router-dom";
+
 import { toast } from "react-toastify";
 import { findInCart } from "../utils/findInCart";
 
 const HomePage = () => {
   const { cart } = useCart();
   const dispatch = useCartAction();
+
   const addProductHandler = (product) => {
     toast.success("با موفقیت به سبد خرید اضافه شد");
     dispatch({ type: "ADD_TO_CART", payload: product });
@@ -24,8 +24,8 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <main className="flex justify-center items-center bg-gray-200 w-full m-4">
-        <section className="grid w-full  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 rounded-lg gap-x-2 gap-y-3 max-w-md md:max-w-2xl lg:max-w-7xl  ">
+      <main className="flex justify-center items-center  w-full m-4">
+        <section className="grid w-full  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 rounded-lg gap-x-2 gap-y-3 max-w-md md:max-w-2xl lg:max-w-7xl  ">
           {prod.products.map((p) => {
             return (
               <section
@@ -39,11 +39,11 @@ const HomePage = () => {
                     alt={p.name}
                   />
                 </div>
-                <div className="flex text-lg justify-between items-center bg-gray-100 p-2 md:text-sm border-2 border-gray-100 rounded-b-lg">
+                <div className="flex text-lg justify-between items-center bg-cyan-50 p-2 md:text-sm border-2 border-gray-100 rounded-b-lg">
                   <p>{p.price},000 تومان</p>
 
                   {checkInCart(cart, p) ? (
-                    <div className="flex justify-center items-center gap-x-9 text-lg   md:gap-x-s border border-slate-200 py-1 px-2">
+                    <div className="flex justify-center items-center gap-x-9 text-lg   md:gap-x-4 border border-slate-200 py-1 px-2">
                       <button
                         className="text-blue-500"
                         onClick={() => incrementHandler(p)}

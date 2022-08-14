@@ -10,7 +10,7 @@ import { showError } from "../utils/shoeError";
 
 const SingupForm = ({ history }) => {
   const redirect = useQuery().get("redirect") || "/";
-  console.log(redirect);
+
   const setAuth = useAuthAction();
   const auth = useAuth();
   // const [userData, setUserDate] = useState({

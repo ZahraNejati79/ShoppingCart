@@ -27,7 +27,10 @@ const Checkout = () => {
             </h3>
             {cart.map((cart) => {
               return (
-                <div className="flex items-center justify-between text-sm text-gray-600">
+                <div
+                  key={cart.id}
+                  className="flex items-center justify-between text-sm text-gray-600"
+                >
                   <p>{cart.name}</p>
                   <p>{cart.offPrice},000</p>
                 </div>

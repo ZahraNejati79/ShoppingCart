@@ -1,3 +1,8 @@
+const initialState = [];
+
+export const initializer = (initialValue = initialState) =>
+  JSON.parse(localStorage.getItem("localCart")) || initialValue;
+
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
@@ -44,8 +49,10 @@ const cartReducer = (state, action) => {
         };
       }
     }
+
     default:
       return state;
   }
 };
+
 export default cartReducer;
