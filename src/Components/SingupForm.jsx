@@ -143,7 +143,7 @@ const SingupForm = ({ history }) => {
       </form>
       <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
         <Link
-          to={`/singup?redirect=${redirect}`}
+          to={`/login?redirect=${redirect}`}
           className=" text-blue-500 outline-none"
         >
           قبلا ثبت نام کرده اید ؟
