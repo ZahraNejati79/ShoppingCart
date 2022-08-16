@@ -1,78 +1,73 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Navitem from "../common/Navitem";
 import { useAuth } from "../Context/AuthProvider";
 import { useCart } from "../Context/CartProvider";
-
-const Navigation = () => {
+import logo from "../icon.svg";
+const Navbar = () => {
   const { cart } = useCart();
   const auth = useAuth();
+  const [isShow, setIsShow] = useState(false);
   return (
-    <header className="text-gray-600 bg-gradient-to-r from-cyan-100 to-blue-100 bg-blue-2 00 width-screen h-16 flex justify-center sticky top-0 mb-4 z-10">
-      <nav className="container flex justify-between items-center max-w-xl md:max-w-2xl lg:max-w-7xl px-4">
-        <ul className="flex items-center justify-start gap-x-2 gap-y-2">
-          <li>
-            <NavLink
-              activeClassName="bg-white text-blue-400"
-              exact
-              to="/singup"
+    <header className=" bg-gradient-to-r from-cyan-50 to-blue-200  width-full  sticky top-0 mb-4 z-10 shadow-md">
+      <nav className="container md:flex bg-transparent  md:mx-10 px-7 justify-between md:items-center w-full max-w-xl md:max-w-2xl lg:max-w-7xl ">
+        <div className="w-20 ">
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="w-20 h-auto font-bold text-lg absolute top-6 right-2 cursor-pointer text-gray-700 md:hidden"></div>
+        <div
+          onClick={() => setIsShow(!isShow)}
+          className="w-20 h-auto font-bold text-lg absolute top-6 right-2 cursor-pointer text-gray-700 md:hidden"
+        >
+          {isShow ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
             >
-              {auth ? (
-                <div className="hover:bg-white hover:text-blue-400 p-2 rounded-lg ">
-                  پروفایل
-                </div>
-              ) : (
-                <div className="hover:bg-white hover:text-blue-400 p-2 rounded-lg ">
-                  <div className="flex justify-center items-center">
-                    <div>ورود</div>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </NavLink>
-          </li>
-          <li className="relative">
-            <NavLink
-              className="hover:bg-white hover:text-blue-400 p-2 rounded-lg"
-              activeClassName="bg-white text-blue-400"
-              exact
-              to="/cart"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
             >
-              سبد خرید
-            </NavLink>
-            <span className="bg-blue-500 flex justify-center items-center top-[-11px] p-2 left-[70px] rounded-full w-[15px] h-[15px] absolute px-2 mr-1 text-white">
-              {cart.length}
-            </span>
-          </li>
-        </ul>
-        <ul className="flex justify-center items-center gap-x-4">
-          <li>
-            <NavLink
-              className="hover:bg-white hover:text-blue-400 p-2 rounded-lg"
-              activeClassName="bg-white text-blue-400"
-              exact
-              to="/"
-            >
-              خانه
-            </NavLink>
-          </li>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
+        </div>
+        <ul
+          className={` md:flex md:items-center pb-12 md:pb-0 md:static bg-gradient-to-r from-cyan-50 to-blue-200  absolute  md:bg-none  left-0 md:z-auto z-[-1] w-full md:w-auto pl-9 md:pl-0 transition-all duration-500 ease-in ${
+            isShow ? "top-20 opacity-100" : "top-[-490px]"
+          } md:opacity-100`}
+        >
+          {auth ? (
+            <Navitem path="/singup" name="پروفایل" />
+          ) : (
+            <Navitem path="/singup" name="ورود" />
+          )}
+          <Navitem path="/" name="خانه" />
+          <Navitem path="/" name="محصولات" />
+          <Navitem path="/" name="درباره ما" />
         </ul>
       </nav>
     </header>
   );
 };
 
-export default Navigation;
+export default Navbar;
