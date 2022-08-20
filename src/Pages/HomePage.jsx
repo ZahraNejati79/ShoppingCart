@@ -2,7 +2,6 @@ import Layout from "../Layout/Layout";
 import * as prod from "../data";
 import { useCart, useCartAction } from "../Context/CartProvider";
 import { checkInCart } from "../utils/checkInCart";
-
 import { toast } from "react-toastify";
 import { findInCart } from "../utils/findInCart";
 
