@@ -24,21 +24,21 @@ const HomePage = () => {
   return (
     <Layout>
       <main className="flex justify-center items-center  w-full m-4">
-        <section className="grid w-full  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 rounded-lg gap-x-2 gap-y-3 max-w-md md:max-w-2xl lg:max-w-7xl  ">
+        <section className="grid w-full  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 rounded-lg gap-x-2 gap-y-3 max-w-md md:max-w-2xl lg:max-w-7xl ">
           {prod.products.map((p) => {
             return (
               <section
                 key={p.name}
-                className="bg-white flex-col items-center justify-center rounded-lg w-full "
+                className="bg-cyan-50 shadow-lg  flex-col items-center justify-center rounded-lg w-full h-full"
               >
-                <div className="w-full ">
+                <div className="w-full">
                   <img
-                    className="w-full h-auto overflow-auto rounded-t-lg"
+                    className="w-full h-auto overflow-auto rounded-t-lg max-h-52 object-cover"
                     src={p.image}
                     alt={p.name}
                   />
                 </div>
-                <div className="flex text-lg justify-between items-center bg-cyan-50 p-2 md:text-sm border-2 border-gray-100 rounded-b-lg">
+                <div className="flex text-lg justify-between items-center bg-cyan-50 p-2 md:text-sm  rounded-b-lg">
                   <p>{p.price},000 تومان</p>
 
                   {checkInCart(cart, p) ? (

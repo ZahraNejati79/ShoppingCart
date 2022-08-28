@@ -11,7 +11,8 @@ export const products = [
     price: 120,
     offPrice: 120,
     discount: 0,
-    image: "https://s4.uupload.ir/files/item1_soj.jpg",
+    image:
+      "https://s6.uupload.ir/files/daniel-storek-jm-qked1gmi-unsplash_ja2.jpg",
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const products = [
     price: 110,
     offPrice: 100,
     discount: 8,
-    image: "https://s4.uupload.ir/files/item2_fc5s.jpg",
+    image:
+      "https://s6.uupload.ir/files/andres-jasso-pqbl_mxmaue-unsplash_gkir.jpg",
   },
   {
     id: 3,
@@ -35,7 +37,8 @@ export const products = [
     price: 99,
     offPrice: 89,
     discount: 10,
-    image: "https://s4.uupload.ir/files/item3_zvc9.jpg",
+    image:
+      "https://s6.uupload.ir/files/maksim-larin-nopsc3nwtzy-unsplash_i0j6.jpg",
   },
   {
     id: 4,
@@ -49,7 +52,7 @@ export const products = [
     price: 260,
     offPrice: 220,
     discount: 15,
-    image: "https://s4.uupload.ir/files/item4_zr94.jpg",
+    image: "https://s6.uupload.ir/files/revolt-164_6wvehfi-unsplash_xaog.jpg",
   },
   {
     id: 5,
@@ -63,7 +66,8 @@ export const products = [
     price: 150,
     offPrice: 150,
     discount: 0,
-    image: "https://s4.uupload.ir/files/item5_24ye.jpg",
+    image:
+      "https://s6.uupload.ir/files/maksim-larin-ezdrvza1hzw-unsplash_nm8f.jpg",
   },
   {
     id: 6,
@@ -77,6 +81,7 @@ export const products = [
     price: 220,
     offPrice: 200,
     discount: 13,
-    image: "https://s4.uupload.ir/files/item6_7jfy.jpg",
+    image:
+      "https://s6.uupload.ir/files/luis-felipe-lins-j2-waqdckus-unsplash_ku8a.jpg",
   },
 ];
