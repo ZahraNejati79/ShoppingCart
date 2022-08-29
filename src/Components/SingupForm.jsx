@@ -131,11 +131,6 @@ const SingupForm = ({ history }) => {
           disabled={!formik.isValid}
           type="submit"
           className="flex items-center disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
-          // className={
-          //   formik.isValid
-          //     ? "flex items-center disabled: justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
-          //     : "flex items-center justify-center w-full bg-slate-300 mt-2 rounded-sm py-1 text-gray-500"
-          // }
         >
           ثبت نام
         </button>

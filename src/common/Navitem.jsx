@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 const Navitem = ({ path, name }) => {
   return (
-    <li className="md:ml-7 text-xl mb-4 ">
+    <li className="md:ml-7 text-xl mb-4 list-none ">
       <NavLink
         exact
         to={path}
-        className="duration-500 text-gray-700 hover:text-gray-400"
+        className="duration-500  text-gray-700 hover:text-gray-400"
       >
         <div>
           <div>{name}</div>

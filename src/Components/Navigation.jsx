@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Navitem from "../common/Navitem";
-import { useAuth } from "../Context/AuthProvider";
+import { useAuth, useAuthAction } from "../Context/AuthProvider";
 import { useCart } from "../Context/CartProvider";
 
 import { FiUser } from "react-icons/fi";
@@ -9,10 +9,16 @@ import { FiUser } from "react-icons/fi";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { cart } = useCart();
-
   const auth = useAuth();
-
+  const setAuth = useAuthAction();
   const [isShow, setIsShow] = useState(false);
+
+  const logOut = () => {
+    localStorage.removeItem("authState");
+    setAuth(false);
+    console.log(auth);
+  };
+
   return (
     <header className=" bg-gradient-to-r from-cyan-50 to-blue-200  width-full  sticky top-0 mb-4 z-10 shadow-md flex items-center justify-center h-20">
       <nav className="container md:flex bg-transparent  md:mx-10 px-7 justify-between md:items-center w-full max-w-xl md:max-w-2xl lg:max-w-7xl ">
@@ -82,7 +88,9 @@ const Navbar = () => {
                               />
                             </svg>
 
-                            <span>خروج از حساب کاربری</span>
+                            <div className="cursor-pointer " onClick={logOut}>
+                              خروج از حساب کاربری
+                            </div>
                           </div>
                         </li>
                       </ul>

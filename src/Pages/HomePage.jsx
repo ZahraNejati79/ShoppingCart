@@ -33,7 +33,7 @@ const HomePage = () => {
               >
                 <div className="w-full">
                   <img
-                    className="w-full h-auto overflow-auto rounded-t-lg max-h-52 object-cover"
+                    className="w-full h-auto overflow-auto rounded-t-lg max-h-80 md:max-h-52 object-cover"
                     src={p.image}
                     alt={p.name}
                   />

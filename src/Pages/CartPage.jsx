@@ -44,7 +44,11 @@ const CartPage = () => {
                   key={item.id}
                 >
                   <div className="w-32 h-auto">
-                    <img src={item.image} alt={item.name} />
+                    <img
+                      className="max-h-40 object-contain w-full"
+                      src={item.image}
+                      alt={item.name}
+                    />
                   </div>
                   <div>
                     <div>{item.name}</div>
