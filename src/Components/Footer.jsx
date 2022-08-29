@@ -2,7 +2,7 @@ import { BsTelegram, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
-    <footer className="w-full bg-blue-100 flex items-center justify-center container py-8">
+    <footer className="w-full bg-blue-100 flex items-center justify-center container py-8 mt-8 mb-0">
       <div className="md:flex md:justify-evenly md:items-center justify-center items-center  text-right w-full ">
         <div className="md:mb-0 mb-4 flex items-center justify-center">
           <ul className="max-w-full">

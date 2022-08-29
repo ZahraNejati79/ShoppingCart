@@ -2,11 +2,13 @@ import Footer from "../Components/Footer";
 import Navigation from "../Components/Navigation";
 const Layout = ({ children }) => {
   return (
-    <div className="h-screen ">
-      <Navigation />
-      <div className=" flex justify-center  w-full ">{children}</div>
+    <>
+      <div className="h-aouto ">
+        <Navigation />
+        <div className=" flex justify-center  w-full ">{children}</div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

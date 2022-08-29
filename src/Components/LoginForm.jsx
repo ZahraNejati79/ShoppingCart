@@ -51,7 +51,7 @@ const LoginForm = ({ history }) => {
   });
 
   return (
-    <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300 mx-2">
+    <div className="bg-white w-full container max-w-md p-4 mt-4 rounded-lg border border-gray-300 mx-2 md:mb-24">
       <form onSubmit={formik.handleSubmit}>
         <InputComponent
           name="email"
