@@ -38,7 +38,7 @@ const HomePage = () => {
                     alt={p.name}
                   />
                 </div>
-                <div className="flex text-lg justify-between items-center bg-cyan-50 p-2 md:text-sm  rounded-b-lg">
+                <div className="flex text-lg justify-between items-center bg-cyan-50 p-2 md:text-lg  rounded-b-lg">
                   <p>{p.price},000 تومان</p>
 
                   {checkInCart(cart, p) ? (
@@ -107,7 +107,7 @@ const HomePage = () => {
                     </div>
                   ) : (
                     <button
-                      className="p-2 bg-gradient-to-r px-4 from-cyan-300 to-blue-300 rounded-lg font-bold"
+                      className="p-2 bg-gradient-to-r px-4 from-cyan-300 to-blue-300 rounded-lg text-lg md:text-sm md:font-bold"
                       onClick={() => addProductHandler(p)}
                     >
                       افزودن به سبد خرید

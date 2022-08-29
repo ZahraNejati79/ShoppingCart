@@ -16,7 +16,6 @@ const Navbar = () => {
   const logOut = () => {
     localStorage.removeItem("authState");
     setAuth(false);
-    console.log(auth);
   };
 
   return (

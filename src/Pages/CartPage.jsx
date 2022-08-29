@@ -33,7 +33,7 @@ const CartPage = () => {
   }
   return (
     <Layout>
-      <main className=" w-screen flex items-center justify-center text-gray-700">
+      <main className=" w-screen flex items-center justify-center text-gray-700 mx-4">
         <div className="md:flex md:items-center md:justify-center  gap-x-4 md:max-w-6xl w-full md:w-5/6 container">
           <SummaryCart cart={cart} total={total} />
           <div className="max-w-xl border border-gray-300 w-full flex flex-col gap-y-3 justify-center items-center bg-white p-2 mt-2 rounded-lg">
@@ -122,7 +122,7 @@ const SummaryCart = ({ cart, total }) => {
         </div>
         <div className="flex justify-between w-full">
           <div>{total}</div>
-          <div>:پمبلغ پرداختی</div>
+          <div>:مبلغ پرداختی</div>
         </div>
         <div className="flex justify-center items-center w-full">
           <Link className="w-full" to="/singup?redirect=checkout">
