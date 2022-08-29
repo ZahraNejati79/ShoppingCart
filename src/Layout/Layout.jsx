@@ -3,7 +3,7 @@ import Navigation from "../Components/Navigation";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="h-aouto ">
+      <div className="min-h-[80vh] ">
         <Navigation />
         <div className=" flex justify-center  w-full ">{children}</div>
       </div>

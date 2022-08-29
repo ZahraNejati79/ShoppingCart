@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navitem = ({ path, name }) => {
   return (
-    <li className="md:ml-7 text-xl mb-4 list-none ">
+    <li className="md:ml-7 text-lg md:text-xl mb-4 list-none ">
       <NavLink
         exact
         to={path}

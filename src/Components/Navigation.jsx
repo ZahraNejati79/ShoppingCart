@@ -45,7 +45,7 @@ const Navbar = () => {
                       </svg>
                     </div>
                     {open && (
-                      <ul className="bg-white text-sm py-0 text-gray-700 absolute top-[3rem] right-[-6rem] w-60 text-right  md:text-lg rounded-md flex flex-col justify-center gap-y-1 shadow-lg">
+                      <ul className="bg-white text-sm py-0 text-gray-700 absolute top-[3rem] right-[-12rem] w-60 text-right  md:text-lg rounded-md flex flex-col justify-center gap-y-1 shadow-lg">
                         <li className="p-2 w-full  border-b-2 border-gray-300">
                           <div>
                             <div dir="rtl" className="flex gap-x-3">
