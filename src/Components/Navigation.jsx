@@ -4,8 +4,6 @@ import Navitem from "../common/Navitem";
 import { useAuth, useAuthAction } from "../Context/AuthProvider";
 import { useCart } from "../Context/CartProvider";
 
-import { FiUser } from "react-icons/fi";
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { cart } = useCart();

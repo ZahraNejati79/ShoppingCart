@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import * as yup from "yup";
 import InputComponent from "../common/InputComponent";
 import { useAuth, useAuthAction } from "../Context/AuthProvider";
@@ -13,30 +13,6 @@ const SingupForm = ({ history }) => {
 
   const setAuth = useAuthAction();
   const auth = useAuth();
-  // const [userData, setUserDate] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const changeSingupHandler = (e) => {
-  //   console.log(e.target.value);
-  //   setUserDate({ ...userData, [e.target.name]: e.target.value });
-  // };
-
-  // const validate = (values) => {
-  //   let errors = {};
-  //   if (!values.name) {
-  //     errors.name = "وارد کردن نام الزامی است";
-  //   }
-  //   if (!values.email) {
-  //     errors.email = "وارد کردن ایمیل الزامی است";
-  //   }
-  //   if (!values.password) {
-  //     errors.password = "وارد کردن رمز عبور الزامی است";
-  //   }
-  //   return errors;
-  // };
 
   const [error, setError] = useState(null);
   useEffect(() => {
