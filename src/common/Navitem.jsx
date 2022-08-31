@@ -6,7 +6,7 @@ const Navitem = ({ path, name }) => {
       <NavLink
         exact
         to={path}
-        className="duration-500  text-gray-700 hover:text-gray-400"
+        className="duration-500  text-black hover:text-gray-500"
       >
         <div>
           <div>{name}</div>

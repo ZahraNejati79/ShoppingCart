@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" bg-gradient-to-r from-cyan-50 to-blue-200  width-full  sticky top-0 mb-4 z-10 shadow-md flex items-center justify-center h-20">
+    <header className=" bg-white  width-full  sticky top-0 mb-4 z-10 shadow-md flex items-center justify-center h-16 md:h-20">
       <nav className="container md:flex bg-transparent  md:mx-10 px-7 justify-between md:items-center w-full max-w-xl md:max-w-2xl lg:max-w-7xl ">
         <div className="flex items-center justify-between w-full">
           <div className=" flex items-center ">
@@ -99,7 +99,7 @@ const Navbar = () => {
               </div>
             </div>
             <NavLink to="/cart" className="relative ml-6">
-              <div className="text-blue-900 text-lg">
+              <div className="text-black text-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -115,7 +115,7 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-              <div className="rounded-full bg-cyan-200 w-6 h-6 flex items-center justify-center absolute top-[-1rem] left-2 ">
+              <div className="rounded-full text-white bg-black w-6 h-6 flex items-center justify-center absolute top-[-1rem] left-2 ">
                 {cart.length}
               </div>
             </NavLink>
@@ -158,8 +158,10 @@ const Navbar = () => {
               )}
             </div>
             <ul
-              className={` md:flex md:items-center md:justify-center pb-12 md:pb-0 md:static bg-gradient-to-r from-cyan-50 to-blue-200  absolute  md:bg-none  left-0 md:z-auto z-[-1] w-full md:w-auto pl-9 md:pl-0 transition-all duration-500 ease-in ${
-                isShow ? "top-20 opacity-100" : "top-[-490px]"
+              className={` md:flex md:items-center md:justify-center pb-12 md:pb-0 md:static bg-white  absolute  md:bg-none  left-0 md:z-auto z-[-1] w-full md:w-auto pl-9 md:pl-0 transition-all duration-500 ease-in ${
+                isShow
+                  ? "top-[4rem] pt-4 shadow-md opacity-100"
+                  : "top-[-490px]"
               } md:opacity-100`}
             >
               <Navitem path="/" name="درباره ما" />
