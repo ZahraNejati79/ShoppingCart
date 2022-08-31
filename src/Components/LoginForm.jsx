@@ -9,10 +9,9 @@ import { loginUser } from "../services/LoginService";
 
 const LoginForm = ({ history }) => {
   const redirect = useQuery().get("redirect") || "/";
-
   const setAuth = useAuthAction();
-  const [error, setError] = useState(null);
   const auth = useAuth();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (auth) history.push(redirect);

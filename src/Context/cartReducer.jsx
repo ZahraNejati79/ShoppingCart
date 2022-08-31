@@ -40,7 +40,6 @@ const cartReducer = (state, action) => {
           total: state.total - action.payload.offPrice,
         };
       } else {
-        const quantity = updatedItem.quantity--;
         updatedCart[index] = updatedItem;
         return {
           ...state,
