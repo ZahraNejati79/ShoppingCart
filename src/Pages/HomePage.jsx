@@ -44,10 +44,10 @@ const HomePage = () => {
                   <div className=" w-full h-10 relative ">
                     {checkInCart(cart, p) ? (
                       <div className="bg-black text-white px-2 py-2 rounded-tl-lg rounded-br-lg absolute right-0 ">
-                        <div className="flex justify-center items-center gap-x-9 text-lg   md:gap-x-4  py-1 px-2">
+                        <div className="flex justify-center text-lg items-center gap-x-9   md:gap-x-4  py-1 px-2">
                           {findInCart(cart, p).quantity === 1 ? (
                             <button
-                              className="text-red-500"
+                              className="text-red-100 text-sm"
                               onClick={() => decrementHandler(p)}
                             >
                               <svg
@@ -68,7 +68,7 @@ const HomePage = () => {
                           ) : (
                             <>
                               <button
-                                className="text-red-500"
+                                className="text-red-100"
                                 onClick={() => decrementHandler(p)}
                               >
                                 <svg
@@ -91,7 +91,7 @@ const HomePage = () => {
                             {findInCart(cart, p).quantity}
                           </div>
                           <button
-                            className="text-blue-500"
+                            className="text-blue-100"
                             onClick={() => incrementHandler(p)}
                           >
                             <svg

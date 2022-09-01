@@ -28,7 +28,7 @@ const Navbar = () => {
                     className="relative ml-2 "
                     onClick={() => setOpen(!open)}
                   >
-                    <div className="text-lg cursor-pointer border-2 text-blue-900 rounded-full p-[0.1rem] border-blue-900">
+                    <div className="text-lg cursor-pointer border-2 text-black rounded-full p-[0.1rem] border-black">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"

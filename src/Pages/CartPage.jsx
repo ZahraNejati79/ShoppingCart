@@ -23,7 +23,8 @@ const CartPage = () => {
         <div className="flex items-center justify-center w-1/2 h-[50vh] bg-white">
           <div className="flex flex-col justify-center items-center">
             <h2>سبد خرید خالی است</h2>
-            <button className=" bg-blue-300 p-2 px-4  rounded-lg mt-4">
+
+            <button className=" bg-black text-white p-2 px-4  rounded-lg mt-4">
               <NavLink to="/">رفتن به فروشگاه</NavLink>
             </button>
           </div>
@@ -43,20 +44,9 @@ const CartPage = () => {
                   className="w-full flex py-2 justify-between items-center border-b-2 border-slate-200 "
                   key={item.id}
                 >
-                  <div className="w-32 h-auto">
-                    <img
-                      className="max-h-40 object-contain w-full"
-                      src={item.image}
-                      alt={item.name}
-                    />
-                  </div>
-                  <div>
-                    <div>{item.name}</div>
-                    <div>{item.price},000 تومان</div>
-                  </div>
-                  <div className=" flex items-center justify-center border border-gray-200 rounded-lg ">
+                  <div className=" flex-col items-center justify-center    rounded-lg ">
                     <button
-                      className="text-blue-500"
+                      className="text-blue-900"
                       onClick={() => incrementHandler(item)}
                     >
                       <svg
@@ -74,7 +64,7 @@ const CartPage = () => {
                     </button>
                     <div className="px-2 text-gray-700">{item.quantity}</div>
                     <button
-                      className="text-red-500"
+                      className="text-red-900"
                       onClick={() => decrementHandler(item)}
                     >
                       <svg
@@ -90,6 +80,18 @@ const CartPage = () => {
                         />
                       </svg>
                     </button>
+                  </div>
+
+                  <div>
+                    <div>{item.name}</div>
+                    <div>{item.price},000 تومان</div>
+                  </div>
+                  <div className="w-32 h-auto">
+                    <img
+                      className="h-20 object-cover w-full"
+                      src={item.image}
+                      alt={item.name}
+                    />
                   </div>
                 </div>
               );
@@ -112,21 +114,21 @@ const SummaryCart = ({ cart, total }) => {
         <h2 className="flex justify-end  w-full font-bold">صورت حساب</h2>
         <div className="w-full">
           <div className="flex justify-between mb-2 w-full">
-            <div> {originalPrice},000</div>
+            <div> {originalPrice}</div>
             <div>:قیمت کل</div>
           </div>
           <div className="flex justify-between w-full border-b-2 border-gray-200 pb-2">
-            <div>{originalPrice - total},000</div>
+            <div>{originalPrice - total}</div>
             <div>:تخفیف</div>
           </div>
         </div>
         <div className="flex justify-between w-full">
-          <div>{total},000</div>
+          <div>{total}</div>
           <div>:مبلغ پرداختی</div>
         </div>
         <div className="flex justify-center items-center w-full">
           <Link className="w-full" to="/singup?redirect=checkout">
-            <button className="bg-gradient-to-r from-cyan-400 to-blue-400 text-white flex justify-center items-center w-full mt-4 rounded-lg py-1">
+            <button className="bg-black text-white flex justify-center items-center w-full mt-4 rounded-lg py-2">
               پرداخت سفارش
             </button>
           </Link>

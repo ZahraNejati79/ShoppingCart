@@ -38,7 +38,7 @@ const Checkout = () => {
             })}
           </div>
           <div className="pb-4">
-            <p className="text-blue-300 hover:text-blue-400 hover:font-bold cursor-pointer">
+            <p className="text-gray-600 hover:text-b;ack hover:font-bold cursor-pointer">
               کد تخفیف دارید ؟
             </p>
           </div>
@@ -48,8 +48,8 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white w-full max-w-sm md:max-w-3xl p-4">
-        <button className="w-full bg-gradient-to-r from-cyan-400 to-blue-400 py-1 rounded-md  ">
+      <div className="bg-white md:flex md:items-center md:justify-center w-full max-w-sm md:max-w-3xl p-4">
+        <button className="w-full bg-black md:w-full text-white py-1 rounded-md  ">
           ثبت سفارش
         </button>
       </div>

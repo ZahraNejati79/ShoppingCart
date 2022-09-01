@@ -106,16 +106,16 @@ const SingupForm = ({ history }) => {
         <button
           disabled={!formik.isValid}
           type="submit"
-          className="flex items-center disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-blue-400 mt-2 rounded-sm py-1 text-white"
+          className="flex mt-4 items-center rounded-lg  disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-black  py-2 text-white"
         >
           ثبت نام
         </button>
         {error && <div>{showError(error)}</div>}
       </form>
-      <div className="border-t-2  flex justify-end items-center border-gray-200 mt-4 pt-4">
+      <div className="border-t-2 flex justify-end items-center border-gray-200 mt-4 pt-4">
         <Link
           to={`/login?redirect=${redirect}`}
-          className=" text-blue-500 outline-none"
+          className=" text-black outline-none"
         >
           قبلا ثبت نام کرده اید ؟
         </Link>
