@@ -1,4 +1,7 @@
-const initialState = [];
+const initialState = {
+  cart: [],
+  total: 0,
+};
 
 export const initializer = (initialValue = initialState) =>
   JSON.parse(localStorage.getItem("localCart")) || initialValue;

@@ -106,7 +106,7 @@ const SingupForm = ({ history }) => {
         <button
           disabled={!formik.isValid}
           type="submit"
-          className="flex mt-4 items-center rounded-lg  disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-black  py-2 text-white"
+          className="flex mt-4 items-center rounded-lg  disabled:bg-gray-300 disabled:text-gray-400 justify-center w-full bg-black  py-1 text-white"
         >
           ثبت نام
         </button>
