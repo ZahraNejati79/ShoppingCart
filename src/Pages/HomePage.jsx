@@ -43,8 +43,8 @@ const HomePage = () => {
 
                   <div className=" w-full h-10 relative ">
                     {checkInCart(cart, p) ? (
-                      <div className="bg-black text-white px-2 py-2 rounded-tl-lg rounded-br-lg absolute right-0 ">
-                        <div className="flex justify-center text-lg items-center gap-x-9   md:gap-x-4  py-1 px-2">
+                      <div className="bg-black text-white px-2 py-2 rounded-tl-lg rounded-br-lg absolute bottom-0 right-0 ">
+                        <div className="flex justify-center text-lg items-center gap-x-4  py-1 px-2">
                           {findInCart(cart, p).quantity === 1 ? (
                             <button
                               className="text-red-100 text-sm"
@@ -111,7 +111,7 @@ const HomePage = () => {
                       </div>
                     ) : (
                       <button
-                        className="bg-black text-white px-4 py-4 rounded-tl-lg rounded-br-lg absolute right-0 "
+                        className="bg-black text-white md:p-4 px-6 py-4 rounded-tl-lg rounded-br-lg absolute bottom-0 right-0 "
                         onClick={() => addProductHandler(p)}
                       >
                         <svg
